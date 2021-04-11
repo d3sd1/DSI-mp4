@@ -5,8 +5,8 @@ import {Pipe, PipeTransform} from '@angular/core';
 })
 export class TypePipe implements PipeTransform {
 
-  transform(type: number, ...args: unknown[]): unknown {
-    switch (type) {
+  transform(type: string, ...args: unknown[]): unknown {
+    switch (parseInt(type, 10)) {
       case 0:
         return 'Trabajo';
       case 1:

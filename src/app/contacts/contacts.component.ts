@@ -36,8 +36,13 @@ export class ContactsComponent implements AfterViewInit {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(private contactsService: ContactsService) {
-    this.dataSource = new MatTableDataSource(contactsService.getAllContacts());
+    this.fetchData();
   }
+
+  fetchData(): void {
+    this.dataSource = new MatTableDataSource(this.contactsService.getAllContacts());
+  }
+
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -51,5 +56,10 @@ export class ContactsComponent implements AfterViewInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  deleteContact(id: number): void {
+    this.contactsService.deleteContactById(id);
+    this.fetchData();
   }
 }

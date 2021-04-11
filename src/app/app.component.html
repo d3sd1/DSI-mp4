@@ -1,5 +1,9 @@
 <mat-toolbar>
-  <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
-  <span>My Application</span>
+  <button mat-raised-button routerLink="/contacts/list">Menu</button>
+  <span class="example-spacer"></span>
+  <mat-icon aria-hidden="false" aria-label="Contacts"
+            matBadge="4" matBadgePosition="after" matBadgeColor="warn">contact_phone</mat-icon>
+  <span class="example-spacer"></span>
+  <span class="menu-right">Directorio de contactos</span>
 </mat-toolbar>
 <router-outlet></router-outlet>
