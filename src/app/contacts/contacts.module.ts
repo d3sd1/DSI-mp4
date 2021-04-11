@@ -6,11 +6,17 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {ContactsComponent} from './contacts.component';
+import {MatSortModule} from '@angular/material/sort';
+import {CommonPipe} from './common.pipe';
+import {TypePipe} from './type.pipe';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
   declarations: [
-    ContactsComponent
+    ContactsComponent,
+    CommonPipe,
+    TypePipe
   ],
   imports: [
     CommonModule,
@@ -18,7 +24,9 @@ import {ContactsComponent} from './contacts.component';
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSortModule,
+    MatIconModule
   ]
 })
 export class ContactsModule {
