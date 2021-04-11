@@ -1,6 +1,13 @@
-<mat-form-field>
-  <mat-label>Filter</mat-label>
-  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+<div class="contacts"><mat-form-field>
+  <mat-label>Filtro</mat-label>
+  <input matInput (keyup)="filterByName()" (change)="filterByName()" placeholder="Filtrar por nombre" #filterName>
+</mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label>Tipo</mat-label>
+  <mat-select (selectionChange)="filterByType($event.value)">
+    <mat-option value="0">Trabajo</mat-option>
+    <mat-option value="1">Personal</mat-option>
+  </mat-select>
 </mat-form-field>
 
 <div class="mat-elevation-z8">
@@ -40,8 +47,11 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Acciones</th>
       <td mat-cell *matCellDef="let row">
-        <span class="icon-action" routerLink="/contacts/single/{{row.id}}"><mat-icon aria-hidden="false" aria-label="Editar" color="accent">edit</mat-icon></span>
-        <span class="icon-action" (click)="deleteContact(row.id)"><mat-icon aria-hidden="false" aria-label="Borrar" color="warn">delete</mat-icon></span>
+          <span class="icon-action" routerLink="/contacts/single/{{row.id}}"><mat-icon aria-hidden="false"
+                                                                                       aria-label="Editar"
+                                                                                       color="accent">edit</mat-icon></span>
+        <span class="icon-action" (click)="deleteContact(row.id)"><mat-icon aria-hidden="false" aria-label="Borrar"
+                                                                            color="warn">delete</mat-icon></span>
       </td>
     </ng-container>
 
@@ -50,9 +60,10 @@
 
     <!-- Row shown when there is no matching data. -->
     <tr class="mat-row" *matNoDataRow>
-      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      <td class="mat-cell" colspan="4">Sin datos para "{{this.filterName.value}}"</td>
     </tr>
   </table>
 
   <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
 </div>

@@ -10,6 +10,8 @@ import {MatSortModule} from '@angular/material/sort';
 import {CommonPipe} from './common.pipe';
 import {TypePipe} from './type.pipe';
 import {MatIconModule} from '@angular/material/icon';
+import {MatSelectModule} from '@angular/material/select';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import {MatIconModule} from '@angular/material/icon';
     MatInputModule,
     MatPaginatorModule,
     MatSortModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule,
+    ReactiveFormsModule
   ]
 })
 export class ContactsModule {
